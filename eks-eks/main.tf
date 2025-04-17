@@ -46,14 +46,6 @@ module "eks" {
     groups   = ["system:masters"]
     }
   ]
-  aws_auth_users = [
-    {
-    userarn  = "arn:aws:iam::688458530085:root"
-    username = "root"
-    groups   = ["system:masters"]
-    }
-  ]
-
 
   eks_managed_node_groups = {
     nodes = {
