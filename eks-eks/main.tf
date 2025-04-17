@@ -39,6 +39,22 @@ module "eks" {
   vpc_id                         = module.vpc.vpc_id
   subnet_ids                     = module.vpc.private_subnets
 
+  map_users = [
+    {
+    userarn  = "arn:aws:iam::688458530085:root"
+    username = "root"
+    groups   = ["system:masters"]
+    }
+  ]
+  aws_auth_users = [
+    {
+    userarn  = "arn:aws:iam::688458530085:root"
+    username = "root"
+    groups   = ["system:masters"]
+    }
+  ]
+
+
   eks_managed_node_groups = {
     nodes = {
       min_size       = 1
